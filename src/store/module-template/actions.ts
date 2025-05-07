@@ -1,4 +1,4 @@
-import { ActionTree } from 'vuex';
+import { type ActionTree } from 'vuex';
 import { type ExampleStateInterface } from './state';
 import { type StateInterface } from '../index';
 

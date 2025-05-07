@@ -1,4 +1,4 @@
-import { GetterTree } from 'vuex';
+import { type GetterTree } from 'vuex';
 import { type ExampleStateInterface } from './state';
 import { type StateInterface } from '../index';
 
