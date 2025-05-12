@@ -20,10 +20,10 @@ export const usePlacesStore = () => {
     isLoading: computed(() => store.state.places.isLoading),
     userLocation: computed(() => store.state.places.userLocation),
     // Getter
-    isUserLocationReady: computed<boolean>(() => store.getters['places/isUserLocationReady'])
+    isUserLocationReady: computed<boolean>(() => store.getters['places/isUserLocationReady']),
 
     // Actions
-
+    searchPlaceByQuery: (query = '') => store.dispatch('places/searchPlacesByQuery', query)
   }
 }
 

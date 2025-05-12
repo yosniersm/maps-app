@@ -1,4 +1,4 @@
-export interface Places {
+export interface PlacesResponse {
   type: string;
   features: Feature[];
   attribution: string;
