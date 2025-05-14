@@ -27,7 +27,7 @@ export default defineComponent({
 
             await searchPlaceByQuery(searchTerm.value)
 
-          }, 2000)
+          }, 1000)
         }
       })
     }

@@ -3,7 +3,6 @@
 <template>
   <div class="searchbar-container">
     <input type="text" class="form-control" placeholder="Find places..." v-model="searchTerm" />
-    {{ searchTerm }}
     <SearchResults />
   </div>
 </template>

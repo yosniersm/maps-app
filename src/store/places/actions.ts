@@ -19,14 +19,26 @@ const actions: ActionTree<PlacesState, StateInterface> = {
 
   async searchPlacesByQuery({ commit, state }, query: string) {
 
-    const places = await searchApi.get<PlacesResponse>('/forward', {
+    if (query.length === 0) {
+      return [];
+    }
+
+    if (!state.userLocation) {
+      throw new Error('There is not user location')
+    }
+
+    commit('setIsLoadingPlaces');
+
+    const resp = await searchApi.get<PlacesResponse>('/forward', {
       params: {
         proximity: state.userLocation?.join(','),
         q: query
       }
     });
 
-    console.log(places.data)
+    commit('setPlaces', resp.data.features)
+
+    return resp.data.features;
   }
 }
 
