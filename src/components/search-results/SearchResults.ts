@@ -1,5 +1,5 @@
 import { defineComponent, ref } from "vue";
-import { usePlacesStore } from "@/composables";
+import { useMapStore, usePlacesStore } from "@/composables";
 import type { Feature } from "@/interfaces/places";
 
 export default defineComponent({
@@ -7,6 +7,7 @@ export default defineComponent({
   name: 'SearchResults',
   setup() {
     const { places, isLoadingPlaces } = usePlacesStore();
+    const { map, } = useMapStore()
 
     const activePlace = ref('');
 
@@ -16,6 +17,12 @@ export default defineComponent({
       activePlace,
       onPlaceClicked: (place: Feature) => {
         activePlace.value = place.id;
+        const [lng, lat] = place.geometry.coordinates
+        map.value.flyTo({
+          center: [lng, lat],
+          zoom: 15,
+
+        })
       }
     }
   }
