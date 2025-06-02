@@ -22,7 +22,6 @@ export default defineComponent({
           if (debounceTimeout.value) clearTimeout(debounceTimeout.value);
 
           debounceTimeout.value = setTimeout(async () => {
-            console.log(val)
             searchTerm.value = val;
 
             await searchPlaceByQuery(searchTerm.value)
