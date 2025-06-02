@@ -20,6 +20,7 @@ const actions: ActionTree<PlacesState, StateInterface> = {
   async searchPlacesByQuery({ commit, state }, query: string) {
 
     if (query.length === 0) {
+      commit('setPlaces', [])
       return [];
     }
 
